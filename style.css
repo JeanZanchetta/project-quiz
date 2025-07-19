@@ -1,0 +1,367 @@
+:root {
+    --primary-color: #667eea;
+    --secondary-color: #764ba2;
+    --success-color: #28a745;
+    --erro-color: #dc3545;
+    --warning-color: #ffc107;
+    --light-bg: #f8f9fa;
+    --dark-bg: #343a40;
+    --text-light: #ffffff;
+    --text-dark: #212529;
+    --border-radius: 12px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 'Arual', sans-serif;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dark);
+}
+
+.container {
+    max-width: 800px;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.screen {
+    background: var(--text-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    display: none;
+    animation: fedein 0.5s ease-in-out;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    fron {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* Tela de Boas-Vendas */
+
+#welcome-screen {
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+#welcome-screen h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+#welcome-screen p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #666;
+
+}
+
+.btn {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--text-light);
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn:holver {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+
+}
+
+/* Interface do quiz */
+
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.progress-container {
+    flex: 1;
+    min-width: 200px;
+}
+
+.progress-bar {
+    background: #e9ecef;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.question-counter {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: bold;
+}
+
+.timer-container {
+    display: flex;
+    align-items: center;
+}
+
+.timer {
+    background: var(--warning-color);
+    color: var(--text-light);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    animation: pulse 1s infinite;
+}
+
+.timer-urgent {
+    background: var(--erro-color);
+    animation: shake 0.5s infinite;
+
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+
+
+}
+
+.quiz-content {
+    margin-bottom: 2rem;
+}
+
+.question-container {
+    margin-bottom: 2rem;
+}
+
+.question-container h2 {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+    text-align: center;
+}
+
+.options-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.option-btn {
+    background: var(--light-bg);
+    border: 2px solid #dee2e6;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1rem;
+    text-align: left;
+    font-weight: 500;
+}
+
+.option-btn:hover {
+    background: #e9ecef;
+    border-color: var(--primary-color);
+}
+
+.option-btn.selected {
+    background: var(--primary-color);
+    color: var(--text-light);
+    border-color: var(--primary-color);
+}
+
+.option-btn.correct {
+    background: var(--success-color);
+    color: var(--text-light);
+    border-color: var(--success-color)
+}
+
+.option-btn.incorrect {
+    background: var(--erro-color);
+    color: var(--text-light);
+    border-color: var(--erro-color);
+}
+
+.option-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.score-container {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Tela de Resultados */
+
+
+#results-screen {
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+#results-screen h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+.results-stats {
+    margin-bottom: 2rem;
+}
+
+.score-final {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.percentage {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.performance-massage {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+
+}
+
+/* Responsividade */
+
+@media (max-width:768px) {
+    .container {
+        width: 95%;
+    }
+
+    .screen {
+        padding: 1.5rem;
+    }
+
+    #welcome-screen h1 {
+        font-size: 2rem;
+    }
+
+    .quiz-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .timer {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+        align-self: center;
+    }
+
+    .question-container h2 {
+        font-size: 1.1rem;
+    }
+
+    .score-final {
+        font-size: 2.5rem;
+    }
+
+    #results-screen hi {
+        font-size: 2rem;
+    }
+
+
+}
+
+@media (max-width: 480px) {
+    .screen {
+        padding: 1rem;
+    }
+
+    #welcome-screen {
+        padding: 2rem;
+    }
+
+    .option.btn {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 1rem;
+    }
+}
