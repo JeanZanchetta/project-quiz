@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz interativo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Tela de Boas-vindas -->
+
+        <div id="welcome-screen" class="screen active">
+            <h1>Quiz interativo</h1>
+            <p>teste seus conhecimentos gereis</p>
+            <p>Você terá 15 segundos para responder cada pergunta.</p>
+            <button id="start-btn" class="btn">Começar Quiz</button>
+        </div>
+
+        <!-- Interface do Quiz -->
+
+        <div id="quiz-screnn" class="screen">
+            <div class="quiz-header">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                    <div class="question-counter">
+                        <span id="current-question">1</span> / <span id="total-question">10</span>
+                    </div>
+                </div>
+                <div class="time-content">
+                    <div id="timer" class="timer">15</div>
+                </div>
+            </div>
+            <div class="quiz-content">
+                <div class="question-container">
+                    <h2 id="question-text"></h2>
+                </div>
+                <div class="option-container">
+                    <button class="option-btn" data-option="0"></button>
+                    <button class="option-btn" data-option="1"></button>
+                    <button class="option-btn" data-option="2"></button>
+                    <button class="option-btn" data-option="3"></button>
+                </div>
+            </div>
+
+            <div class="score-container">
+                <span>Pontuação: <span id="current-score">0</span></span>
+            </div>
+        </div>
+
+        <!-- Tela de resultados -->
+
+        <div id="results-scren" class="screen">
+            <h1>Resultados</h1>
+            <div class="results-stats">
+                <div class="score-final">
+                    <span id="final-score">0</span> / <span id="total-score">10</span>
+                </div>
+                <div class="percentage">
+                    <span id="percentage" 0%></span>
+                </div>
+                <div class="performance-message">
+                    <p id="performance-text"></p>
+                </div>
+
+            </div>
+            <button id="restart-btn" class="btn">Jogar Novamente</button>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>
