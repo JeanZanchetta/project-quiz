@@ -2,7 +2,7 @@
     --primary-color: #667eea;
     --secondary-color: #764ba2;
     --success-color: #28a745;
-    --erro-color: #dc3545;
+    --error-color: #dc3545;
     --warning-color: #ffc107;
     --light-bg: #f8f9fa;
     --dark-bg: #343a40;
@@ -21,7 +21,7 @@
 }
 
 body {
-    font-size: 'Arual', sans-serif;
+    font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     min-height: 100vh;
     display: flex;
@@ -43,7 +43,7 @@ body {
     box-shadow: var(--box-shadow);
     padding: 2rem;
     display: none;
-    animation: fedein 0.5s ease-in-out;
+    animation: fedeIn 0.5s ease-in-out;
 }
 
 .screen.active {
@@ -51,7 +51,7 @@ body {
 }
 
 @keyframes fadeIn {
-    fron {
+    from {
         opacity: 0;
         transform: translateY(20px);
     }
@@ -97,7 +97,7 @@ body {
     letter-spacing: 1px;
 }
 
-.btn:holver {
+.btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 
@@ -159,8 +159,8 @@ body {
     animation: pulse 1s infinite;
 }
 
-.timer-urgent {
-    background: var(--erro-color);
+.urgent {
+    background: var(--error-color);
     animation: shake 0.5s infinite;
 
 }
@@ -249,9 +249,9 @@ body {
 }
 
 .option-btn.incorrect {
-    background: var(--erro-color);
+    background: var(--error-color);
     color: var(--text-light);
-    border-color: var(--erro-color);
+    border-color: var(--error-color);
 }
 
 .option-btn:disabled {
@@ -297,7 +297,7 @@ body {
     margin-bottom: 1rem;
 }
 
-.performance-massage {
+.performance-message {
     font-size: 1.2rem;
     color: #666;
     margin-bottom: 2rem;
@@ -355,7 +355,7 @@ body {
         padding: 2rem;
     }
 
-    .option.btn {
+    .option-btn {
         padding: 0.8rem;
         font-size: 0.9rem;
     }
